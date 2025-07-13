@@ -1,5 +1,4 @@
-# This file is expected to fail ❌ upon push until you fix the bug
-# You successfully completed this level when this file pass 🟢 upon push
+
 name: HACK - Jarvis Gone Wrong
 
 on:
@@ -23,3 +22,21 @@ jobs:
             echo "Insecure action detected. Please remove it from your workflow."
             exit 1
           fi
+            - Name: Go-Umgebung einrichten
+  verwendet: actions/setup-go@v5.5.0
+  mit:
+    # Die Go-Version, die (falls erforderlich) heruntergeladen und verwendet werden soll. Unterstützt Semver-Spezifikationen und -Bereiche. Setzen Sie diese Option unbedingt in einfache Anführungszeichen.
+    go-version: # optional
+    # Pfad zur Datei go.mod oder go.work.
+    go-version-file: # optional
+    # Setzen Sie diese Option auf „true“, wenn die Aktion immer nach der neuesten verfügbaren Version suchen soll, die die Versionsspezifikation erfüllt
+    check-latest: # optional
+    # Wird verwendet, um Go-Distributionen aus Go-Versionen zu ziehen. Da es einen Standardwert gibt, wird dieser normalerweise nicht vom Benutzer angegeben. Bei Ausführung dieser Aktion auf github.com ist der Standardwert ausreichend. Bei Ausführung auf GHES können Sie einen persönlichen Zugriffstoken für github.com übergeben, falls Sie eine Ratenbegrenzung feststellen.
+    Token: # optional, Standard ist ${{ github.server_url == 'https://github.com' && github.token || '' }}
+    # Gibt an, ob Caching erforderlich ist. Setzen Sie diesen Wert auf „true“, wenn Sie Caching aktivieren möchten.
+    Cache: # optional, Standard ist true
+    # Wird verwendet, um den Pfad zu einer Abhängigkeitsdatei anzugeben - go.sum
+    Cache-Abhängigkeitspfad: # optional
+    # Zielarchitektur für Go. Beispiele: x86, x64. Standardmäßig wird die Systemarchitektur verwendet.
+    Architektur: # optional
+          
